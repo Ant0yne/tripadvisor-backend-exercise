@@ -5,19 +5,13 @@ const formData = require("form-data");
 const Mailgun = require("mailgun.js");
 
 const app = express();
-app.use(cors());
 app.use(express.json());
+app.use(cors());
 
 const mailgun = new Mailgun(formData);
 const clientMailgun = mailgun.client({
 	username: "api",
 	key: process.env.MAILGUN_API_KEY,
-});
-
-app.all("/", (req, res) => {
-	res.status(200).json({
-		message: "Bienvenue sur Tripadvisor ! (pas le vrai c'est un exercice)",
-	});
 });
 
 app.post("/form", async (req, res) => {
@@ -50,6 +44,12 @@ app.get("/test", (req, res) => {
 	} catch (error) {
 		res.status(500).json({ message: error.message });
 	}
+});
+
+app.all("/", (req, res) => {
+	res.status(200).json({
+		message: "Bienvenue sur Tripadvisor ! (pas le vrai c'est un exercice)",
+	});
 });
 
 app.all("*", (req, res) => {
