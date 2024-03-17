@@ -44,6 +44,14 @@ app.post("/form", async (req, res) => {
 	}
 });
 
+app.get("/test", (req, res) => {
+	try {
+		res.status(200).json({ message: "Ça fontionne" });
+	} catch (error) {
+		res.status(500).json({ message: error.message });
+	}
+});
+
 app.all("*", (req, res) => {
 	res.status(404).json({ message: "Page not found" });
 });
