@@ -8,6 +8,8 @@ An exercise to recreate the TripAdvisor website. It's part of my training to bec
 
 - POST - _Send a form_
 
+`https://site--tripadvisor-backend-exercise--spyfkvx5gdbh.code.run/form`
+
 This is the request to send a form by mail.
 Here are the _body_ parameters to send with the request :
 
@@ -19,8 +21,8 @@ String
 
 `email`  
 String (with a @ in it)
-Only the configured mail address will work to avoid issues
+Only the configured mail address will work to avoid spam for now
 
 ## Work in progress
 
-- fix the issue that the post route is not recognize when not on local server
+-
